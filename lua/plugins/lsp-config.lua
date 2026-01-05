@@ -2,6 +2,7 @@ return {
   {
     "mason-org/mason.nvim",
     opts = {},
+    dependencies = { "mason-org/mason-registry" }
   },
   {
     "mason-org/mason-lspconfig.nvim",
@@ -16,7 +17,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      vim.lsp.enable("lua_ls")
       -- config options in after/lsp
       vim.lsp.enable('ruby-lsp')
     end,

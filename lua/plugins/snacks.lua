@@ -9,32 +9,23 @@ return {
     debug = { enabled = true },
     dim = { enabled = false },
     explorer = { enabled = true },
-    gh = { enabled = true },
     git = { enabled = true },
     image = { enabled = true },
     indent = { enabled = true },
-    input = { enabled = false },
+    input = { enabled = true },
     notifier = {
       enabled = true,
       timeout = 3000,
     },
-    picker = {
-      sources = {
-        gh_issue = {
-          -- your gh_issue picker configuration comes here
-          -- or leave it empty to use the default settings
-        },
-        gh_pr = {
-          -- your gh_pr picker configuration comes here
-          -- or leave it empty to use the default settings
-        }
-      }
-    },
-    quickfile = { enabled = false },
-    scope = { enabled = false },
-    scroll = { enabled = false },
-    statuscolumn = { enabled = false },
-    words = { enabled = false },
+    picker = { enabled = true },
+    quickfile = { enabled = true },
+    scope = { enabled = true },
+    scratch = { enabled = true },
+    scroll = { enabled = true },
+    statuscolumn = { enabled = true },
+    toggle = { enabled = true },
+    words = { enabled = true },
+    zen = { enabled = false },
     styles = {
       notification = {
         -- wo = { wrap = false } -- Wrap notifications
@@ -64,11 +55,6 @@ return {
     { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
     { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
     { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
-    -- gh
-    { "<leader>gi", function() Snacks.picker.gh_issue() end, desc = "GitHub Issues (open)" },
-    { "<leader>gI", function() Snacks.picker.gh_issue({ state = "all" }) end, desc = "GitHub Issues (all)" },
-    { "<leader>gp", function() Snacks.picker.gh_pr() end, desc = "GitHub Pull Requests (open)" },
-    { "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, desc = "GitHub Pull Requests (all)" },
     -- Grep
     { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
     { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
@@ -107,8 +93,8 @@ return {
     { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
     { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
     -- Other
-    { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
-    { "<leader>Z",  function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
+    -- { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
+    -- { "<leader>Z",  function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
     { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
     { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
     { "<leader>n",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
