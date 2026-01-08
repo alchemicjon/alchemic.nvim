@@ -23,7 +23,8 @@ return {
     keys = {
       { 'K', vim.lsp.buf.hover, desc = "Hover" },
       { 'gd', vim.lsp.buf.definition, desc = "GoTo Definition" },
-      { '<leader>ca', vim.lsp.buf.code_action, desc = "Code Actions" }
+      { '<leader>ca', vim.lsp.buf.code_action, desc = "Code Actions" },
+      { '<leader>cf', vim.lsp.buf.format, desc = "Format buffer" }
     }
   },
 }
