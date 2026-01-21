@@ -1,9 +1,14 @@
 return {
-  "folke/tokyonight.nvim",
+  "catppuccin/nvim",
+  name = "catppuccin",
   lazy = false,
   priority = 1000,
-  opts = {},
-  config = function()
-    vim.cmd[[colorscheme tokyonight]]
+  opts = {
+    show_end_of_buffer = true,
+    flavour = "macchiato",
+  },
+  config = function(_, opts)
+    require("catppuccin").setup(opts)
+    vim.cmd([[colorscheme catppuccin]])
   end
 }
