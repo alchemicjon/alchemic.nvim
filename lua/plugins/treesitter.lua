@@ -4,11 +4,10 @@ return {
   build = ':TSUpdate',
   opts = {
     auto_install = true,
-    highlight = { enabled = true },
-    indent = { enabled = true }
-  },
-  config = function(_, opts)
-    local parsers = {
+    highlight = { enable = true },
+    indent = { enable = true },
+    folds = { enable = true },
+    ensure_installed = {
       "bash",
       "embedded_template",
       "html",
@@ -26,12 +25,6 @@ return {
       "vim",
       "yaml",
       "zsh",
-    }
-    local config = require("nvim-treesitter.configs")
-    config.setup(opts)
-    vim.api.nvim_create_autocmd('FileType', {
-      pattern = parsers,
-      callback = function() vim.treesitter.start() end,
-    })
-  end
+    },
+  }
 }
