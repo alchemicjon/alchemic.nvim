@@ -128,3 +128,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- [[Buffer controls]]
 vim.keymap.set("n", "<leader>bd", "<Cmd>bdelete<Cr>", { desc = "Delete the current buffer" })
+
+-- [[Package manager controls]]
+vim.keymap.set("n", "<leader>pu", function() vim.pack.update() end, { desc = "Update all packages" })

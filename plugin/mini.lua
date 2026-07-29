@@ -46,3 +46,5 @@ statusline.section_location = function() return '%2l:%-2v' end
 
 -- Tabline
 require('mini.tabline').setup()
+-- Surround
+require('mini.pairs').setup()
