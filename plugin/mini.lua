@@ -48,3 +48,6 @@ statusline.section_location = function() return '%2l:%-2v' end
 require('mini.tabline').setup()
 -- Surround
 require('mini.pairs').setup()
+-- Files
+require('mini.files').setup()
+vim.keymap.set("n", "<leader>e", function() MiniFiles.open() end, { desc = "[E]xplore files" })
