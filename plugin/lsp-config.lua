@@ -27,19 +27,22 @@ do
         vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
       end
 
-      map('grd', vim.lsp.buf.definition, "[G]oto [d]efinition")
+      map('<leader>cd', vim.lsp.buf.definition, "Goto [d]efinition")
 
       -- Rename the variable under your cursor.
       --  Most Language Servers support renaming across files, etc.
-      map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
+      map('<leader>cr', vim.lsp.buf.rename, '[r]ename')
 
       -- Execute a code action, usually your cursor needs to be on top of an error
       -- or a suggestion from your LSP for this to activate.
-      map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+      map('<leader>ca', vim.lsp.buf.code_action, 'Goto code [a]ction', { 'n', 'x' })
 
       -- WARN: This is not Goto Definition, this is Goto Declaration.
       --  For example, in C this would take you to the header.
-      map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+      map('<leader>cD', vim.lsp.buf.declaration, 'Goto [D]eclaration')
+
+      -- Allow LSP to format buffer
+      map('<leader>cf', vim.lsp.buf.format, '[f]ormat buffer')
 
       -- The following two autocommands are used to highlight references of the
       -- word under your cursor when your cursor rests there for a little while.
