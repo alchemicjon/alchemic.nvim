@@ -1,4 +1,6 @@
-vim.pack.add({ 'https://github.com/mason-org/mason.nvim' })
+require('common.functions')
+
+vim.pack.add({ Gh('mason-org/mason.nvim') })
 
 require("mason").setup({
   ui = {

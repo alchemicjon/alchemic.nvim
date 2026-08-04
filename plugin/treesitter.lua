@@ -2,6 +2,8 @@
 --  Used to highlight, edit, and navigate code
 --
 --  See `:help nvim-treesitter-intro`
+require('common.functions')
+
 vim.api.nvim_create_autocmd('PackChanged', { callback = function(ev)
   local name, kind = ev.data.spec.name, ev.data.kind
   if name == 'nvim-treesitter' and kind == 'update' then
@@ -9,11 +11,28 @@ vim.api.nvim_create_autocmd('PackChanged', { callback = function(ev)
     vim.cmd('TSUpdate')
   end
 end })
+
 -- NOTE: You can also specify a branch or a specific commit
-vim.pack.add { { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' } }
+vim.pack.add { { src = Gh('nvim-treesitter/nvim-treesitter'), version = 'main' } }
 
 -- Ensure basic parsers are installed
-local parsers = { 'bash', 'c', 'diff', 'embedded_template', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'ruby', 'vim', 'vimdoc', 'yaml' }
+local parsers = {
+  'bash',
+  'c',
+  'diff',
+  'embedded_template',
+  'html',
+  'lua',
+  'luadoc',
+  'markdown',
+  'markdown_inline',
+  'python',
+  'query',
+  'ruby',
+  'vim',
+  'vimdoc',
+  'yaml'
+}
 require('nvim-treesitter').install(parsers)
 
 ---@param buf integer

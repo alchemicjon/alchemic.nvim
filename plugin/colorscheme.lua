@@ -1,4 +1,6 @@
-vim.pack.add({ "https://github.com/sainnhe/everforest" })
+require('common.functions')
+
+vim.pack.add({ Gh('sainnhe/everforest') })
 
 vim.g.everforest_enable_italic = true
 vim.cmd("set background=dark")

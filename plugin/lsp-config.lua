@@ -2,12 +2,11 @@
 -- SECTION 6: LSP
 -- LSP keymaps, server configuration, Mason tools installations
 -- ============================================================
-do
-  -- convenience function
-  local function gh(repo) return 'https://github.com/' .. repo end
+require('common.functions')
 
+do
   -- Useful status updates for LSP.
-  vim.pack.add { gh 'j-hui/fidget.nvim' }
+  vim.pack.add { Gh 'j-hui/fidget.nvim' }
   require('fidget').setup {}
 
   --  This function gets run when an LSP attaches to a particular buffer.
@@ -137,10 +136,10 @@ do
   }
 
   vim.pack.add {
-    gh 'neovim/nvim-lspconfig',
-    gh 'mason-org/mason.nvim',
-    gh 'mason-org/mason-lspconfig.nvim',
-    gh 'WhoIsSethDaniel/mason-tool-installer.nvim',
+    Gh 'neovim/nvim-lspconfig',
+    Gh 'mason-org/mason.nvim',
+    Gh 'mason-org/mason-lspconfig.nvim',
+    Gh 'WhoIsSethDaniel/mason-tool-installer.nvim',
   }
 
   -- Automatically install LSPs and related tools to stdpath for Neovim

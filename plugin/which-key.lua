@@ -1,4 +1,6 @@
-vim.pack.add { 'https://github.com/folke/which-key.nvim' }
+require('common.functions')
+
+vim.pack.add { Gh('folke/which-key.nvim') }
 require('which-key').setup {
   -- Delay between pressing a key and opening which-key (milliseconds)
   delay = 0,

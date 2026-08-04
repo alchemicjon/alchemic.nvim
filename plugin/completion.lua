@@ -1,6 +1,8 @@
+require('common.functions')
+
 vim.pack.add({
   {
-    src = 'https://github.com/Saghen/blink.cmp',
+    src = Gh('Saghen/blink.cmp'),
     version = vim.version.range("1.*")
   }
 })
