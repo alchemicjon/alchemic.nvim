@@ -52,5 +52,15 @@ require('mini.tabline').setup()
 require('mini.pairs').setup()
 -- Files
 require('mini.files').setup()
-vim.keymap.set("n", "<leader>e", function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end, { desc = "[e]xplore files in buffer directory" })
-vim.keymap.set("n", "<leader>E", function() MiniFiles.open(nil, false) end, { desc = "[E]xplore files in CWD" })
+
+local openOrCloseMiniFiles = function(path, use_latest)
+  local state = MiniFiles.get_explorer_state()
+  if state then
+    MiniFiles.close()
+  else
+    MiniFiles.open(path, use_latest)
+  end
+end
+
+vim.keymap.set("n", "<leader>e", function() openOrCloseMiniFiles(vim.api.nvim_buf_get_name(0), true) end, { desc = "[e]xplore files in buffer directory" })
+vim.keymap.set("n", "<leader>E", function() openOrCloseMiniFiles(nil, false) end, { desc = "[E]xplore files in CWD" })
