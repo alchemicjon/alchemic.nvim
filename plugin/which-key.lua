@@ -7,13 +7,13 @@ require('which-key').setup {
   icons = { mappings = vim.g.have_nerd_font },
   -- Document existing key chains
   spec = {
-    { '<leader>b', group = '[B]uffers', mode = { 'n' } },
-    { '<leader>c', group = '[C]ode Actions' },
-    { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
-    { '<leader>p', group = 'Vim [P]ack', mode = { 'n' } },
-    { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
-    { '<leader>t', group = '[T]oggle' },
-    { '<leader>y', group = '[Y]ank' },
-    { 'gr', group = 'LSP Actions', mode = { 'n' } },
+    { '<leader>b', group = '[b]uffers', mode = { 'n' } },
+    { '<leader>c', group = '[c]ode actions' },
+    { '<leader>h', group = 'git [h]unk', mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
+    { '<leader>o', group = '[o]pen', mode = { 'n' } },
+    { '<leader>p', group = 'vim [p]ack', mode = { 'n' } },
+    { '<leader>s', group = '[s]earch', mode = { 'n', 'v' } },
+    { '<leader>t', group = '[t]oggle' },
+    { '<leader>y', group = '[y]ank' },
   },
 }

@@ -58,9 +58,36 @@ local openOrCloseMiniFiles = function(path, use_latest)
   if state then
     MiniFiles.close()
   else
-    MiniFiles.open(path, use_latest)
+    if not(pcall(function() MiniFiles.open(path, use_latest) end)) then
+      pcall(function() MiniFiles.open(nil, false) end)
+    end
   end
 end
 
 vim.keymap.set("n", "<leader>e", function() openOrCloseMiniFiles(vim.api.nvim_buf_get_name(0), true) end, { desc = "[e]xplore files in buffer directory" })
 vim.keymap.set("n", "<leader>E", function() openOrCloseMiniFiles(nil, false) end, { desc = "[E]xplore files in CWD" })
+
+local starter = require('mini.starter')
+local builtin = require 'telescope.builtin'
+local my_items = {
+  { name = "Files", action = builtin.find_files, section = "Telescope" },
+  { name = "Live grep", action = builtin.live_grep, section = "Telescope" },
+  { name = "Old files", action = builtin.oldfiles, section = "Telescope" },
+  { name = "Help", action = builtin.help_tags, section = "Telescope" },
+  starter.sections.recent_files(),
+  starter.sections.builtin_actions(),
+}
+starter.setup({
+        header = [[
+    ▄▄     ▄▄▄▄                ▄▄                               ██               ▄▄    ▄▄     ██              
+   ████    ▀▀██                ██                               ▀▀               ▀██  ██▀     ▀▀              
+   ████      ██       ▄█████▄  ██▄████▄   ▄████▄   ████▄██▄   ████      ▄█████▄   ██  ██    ████     ████▄██▄ 
+  ██  ██     ██      ██▀    ▀  ██▀   ██  ██▄▄▄▄██  ██ ██ ██     ██     ██▀    ▀   ██  ██      ██     ██ ██ ██ 
+  ██████     ██      ██        ██    ██  ██▀▀▀▀▀▀  ██ ██ ██     ██     ██          ████       ██     ██ ██ ██ 
+ ▄██  ██▄    ██▄▄▄   ▀██▄▄▄▄█  ██    ██  ▀██▄▄▄▄█  ██ ██ ██  ▄▄▄██▄▄▄  ▀██▄▄▄▄█    ████    ▄▄▄██▄▄▄  ██ ██ ██ 
+ ▀▀    ▀▀     ▀▀▀▀     ▀▀▀▀▀   ▀▀    ▀▀    ▀▀▀▀▀   ▀▀ ▀▀ ▀▀  ▀▀▀▀▀▀▀▀    ▀▀▀▀▀     ▀▀▀▀    ▀▀▀▀▀▀▀▀  ▀▀ ▀▀ ▀▀ 
+ ]],
+  items = my_items,
+})
+
+vim.keymap.set("n", "<leader>os", function() MiniStarter.open() end, { desc = "[s]tart screen" })
