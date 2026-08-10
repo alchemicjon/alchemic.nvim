@@ -26,3 +26,10 @@ require('blink.cmp').setup({
     implementation = "prefer_rust_with_warning"
   }
 })
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = '*.md',
+  callback = function()
+    vim.b.completion = false
+  end,
+})
