@@ -81,3 +81,5 @@ vim.diagnostic.config {
     end,
   },
 }
+
+vim.keymap.set('n', '<leader>l', vim.diagnostic.setloclist, { desc = 'Open diagnostic quickfix [L]ist' })
