@@ -4,6 +4,14 @@
 --  See `:help nvim-treesitter-intro`
 require('common.functions')
 
+-- Make sure that tree-sitter-cli is installed before starting
+require('mason').setup {}
+require('mason-tool-installer').setup {
+  ensure_installed = {
+    'tree-sitter-cli'
+  }
+}
+
 vim.api.nvim_create_autocmd('PackChanged', { callback = function(ev)
   local name, kind = ev.data.spec.name, ev.data.kind
   if name == 'nvim-treesitter' and kind == 'update' then
