@@ -3,7 +3,6 @@ require('common.functions')
 vim.pack.add({ Gh('lewis6991/gitsigns.nvim') })
 
 require('gitsigns').setup {
-  word_diff = true,
   on_attach = function(bufnr)
     local gitsigns = require('gitsigns')
 
@@ -58,15 +57,14 @@ require('gitsigns').setup {
     map('n', '<leader>hb', function() gitsigns.blame_line({ full = true }) end, { desc = "git [h]unk [b]lame line" })
     map('n', '<leader>hB', gitsigns.blame, { desc = 'git [h]unk blame [B]uffer' })
 
-    map('n', '<leader>hd', gitsigns.diffthis)
-    map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
+    map('n', '<leader>hd', gitsigns.diffthis, { desc = 'git [h]unk [d]iffthis' })
+    map('n', '<leader>hD', function() gitsigns.diffthis('~') end, { desc = 'git [h]unk [D]iffthis(~)' })
 
-    map('n', '<leader>hQ', function() gitsigns.setqflist('all') end)
-    map('n', '<leader>hq', gitsigns.setqflist)
+    map('n', '<leader>hQ', function() gitsigns.setqflist('all') end, { desc = 'git [h]unk [Q]uickfix list all' })
+    map('n', '<leader>hq', gitsigns.setqflist, { desc = 'git [h]unk [q]uickfix list' })
 
     -- Toggles
-    map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
-    map('n', '<leader>tw', gitsigns.toggle_word_diff)
+    -- map('n', '<leader>tw', gitsigns.toggle_word_diff)
 
     -- Text object
     map({'o', 'x'}, 'ih', gitsigns.select_hunk)
