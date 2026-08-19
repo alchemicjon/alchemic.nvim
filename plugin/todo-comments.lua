@@ -2,4 +2,4 @@
 require('common.functions')
 
 vim.pack.add { Gh('folke/todo-comments.nvim') }
-require('todo-comments').setup()
+require('todo-comments').setup({ signs = false })

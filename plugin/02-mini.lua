@@ -91,3 +91,5 @@ starter.setup({
 })
 
 vim.keymap.set("n", "<leader>os", function() MiniStarter.open() end, { desc = "[s]tart screen" })
+
+require("mini.splitjoin").setup({})
