@@ -14,6 +14,7 @@ require('which-key').setup {
     { '<leader>p', group = 'vim [p]ack', mode = { 'n' } },
     { '<leader>s', group = '[s]earch', mode = { 'n', 'v' } },
     { '<leader>t', group = '[t]oggle' },
+    { '<leader>u', group = 'c[u]rl', mode = { 'n' } },
     { '<leader>y', group = '[y]ank' },
   },
 }
