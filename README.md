@@ -26,7 +26,7 @@ brew install neovim
 brew install rg fd
 ```
 - ruby and bundler
-- ruby-lsp gem HAS to be installed manually or through bundler, there are problems with installing it via mason
+- ruby-lsp gem HAS to be installed manually or through bundler, there are problems with installing it via mason. Reinstall the gem any time you update your ruby version.
 ```bash
 gem install ruby-lsp
 ```
